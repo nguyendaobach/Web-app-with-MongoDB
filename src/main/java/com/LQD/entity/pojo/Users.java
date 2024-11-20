@@ -1,11 +1,15 @@
 package com.LQD.entity.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
 @Document(collection = "users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Users {
     @Id
     private String id;
@@ -22,7 +26,6 @@ public class Users {
 
     private String role;
 
-    // Getters and Setters
     public String getId() {
         return id;
     }
