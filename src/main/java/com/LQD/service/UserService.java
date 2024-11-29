@@ -144,9 +144,13 @@ public class UserService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email not found.");
         }
         if (register.getOtp()==otp) {
-            user.setPassword(encoder.encode(user.getPassword()));
-            userRepository.save(user);
-            return ResponseEntity.status(HttpStatus.CREATED).body("Register success");
+            if(user.getRole()=="User"||user.getRole()=="Support"){
+                user.setPassword(encoder.encode(user.getPassword()));
+                userRepository.save(user);
+                return ResponseEntity.status(HttpStatus.CREATED).body("Register success");
+            }else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Role must User or Staff");
+            }
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid OTP.");
         }
