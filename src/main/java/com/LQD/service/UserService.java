@@ -75,7 +75,7 @@ public class UserService {
 
     public ResponseEntity<?> register(String email) {
         if(email==null){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Mail");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Mail can not be null");
         }
         Users users=userRepository.findByEmail(email);
         if(users!=null){

@@ -35,7 +35,6 @@ public class SecurityConfig {
         httpSecurity.csrf(customizer -> customizer.disable());
         httpSecurity.authorizeHttpRequests(request -> request
                         .requestMatchers("/api/security/**").permitAll()
-                        .requestMatchers("/api/security/verify").permitAll()
                         .requestMatchers("/demands/**").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/v3/api-docs/**").permitAll()

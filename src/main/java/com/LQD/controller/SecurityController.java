@@ -19,7 +19,7 @@ public class SecurityController {
         return userService.login(user);
     }
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody String email) {
+    public ResponseEntity<?> register(@RequestParam String email) {
         return userService.register(email);
     }
     @PostMapping("/verify")
