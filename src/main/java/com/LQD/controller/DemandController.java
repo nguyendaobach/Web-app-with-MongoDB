@@ -1,5 +1,6 @@
 package com.LQD.controller;
 
+import com.LQD.entity.DemandsCreate;
 import com.LQD.entity.pojo.Demands;
 import com.LQD.service.DemandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,12 @@ public class DemandController {
     @Autowired
     private DemandService demandService;
 
-    // Endpoint để tạo một demand mới
     @PostMapping("/create")
-    public String createDemand(@RequestBody Demands demand) {
+    public String createDemand(@RequestBody DemandsCreate demand) {
         demandService.createDemand(demand);
         return "Demand created successfully!";
     }
 
-    // Endpoint để lấy danh sách tất cả các demands
     @GetMapping("/all")
     public List<Demands> getAllDemands() {
         return demandService.getAllDemands();

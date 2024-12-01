@@ -52,7 +52,7 @@ public class UserService {
             Users user = userPrinciple.getUser();
 
 
-            String token = jwtService.generateToken(user.getFullName(), user.getId());
+            String token = jwtService.generateToken(user.getEmail(), user.getId());
 
             LoginResponse response = new LoginResponse(token,user.getFullName(),user.getRole());
             return ResponseEntity.ok(response);
